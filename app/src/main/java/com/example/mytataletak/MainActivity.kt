@@ -18,7 +18,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setcontent {}
         MyTataLetakTheme {
-
+            Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
         }
 
     }
