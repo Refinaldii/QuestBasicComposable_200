@@ -44,5 +44,32 @@ fun TataletakRowColumn(modifier: Modifier) {
     }
 }
 
+@Composable
+fun TataletakBoxColumnRow(modifier: Modifier) {
+    val gambar = painterResource(id = R.drawable.ic_launcher_background)
+    Column(modifier = modifier) {
+        Box(
+            modifier = modifier
+                .height(120.dp)
+                .fillMaxWidth()
+                .background(Color.Yellow),
+            contentAlignment = Alignment.Center
+        ) {
+            Text("Header Box")
+        }
+        Spacer(modifier = Modifier.height(8.dp))
+        Box(
+            modifier = modifier
+                .fillMaxWidth()
+                .background(Color.Cyan),
+            contentAlignment = Alignment.Center
+        ) {
+            Image(painter = gambar, contentDescription = null)
+            Text("My Image")
+        }
+    }
+}
+
+
 
 
