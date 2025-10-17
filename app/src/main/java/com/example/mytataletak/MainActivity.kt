@@ -14,7 +14,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.mytataletak.ui.theme.MyTataLetakTheme
 
 class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
 
+    }
 }
 
 
