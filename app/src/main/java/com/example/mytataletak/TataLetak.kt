@@ -101,7 +101,7 @@ fun TataletakRowColumn(modifier: Modifier) {
 
 @Composable
 fun TataletakBoxColumnRow(modifier: Modifier) {
-    val gambar = painterResource(id = R.drawable.ic_launcher_background) // Asumsi nama drawable
+    val gambar = painterResource(id = R.drawable.hengker) // Asumsi nama drawable
 
     Column(modifier = modifier) {
         // Box pertama (kuning)
