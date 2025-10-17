@@ -30,4 +30,19 @@ fun TataletakColumnRow(modifier: Modifier) {
     }
 }
 
+@Composable
+fun TataletakRowColumn(modifier: Modifier) {
+    Row {
+        Column {
+            Text("Kolom1-Komponen1")
+            Text("Kolom1-Komponen2")
+        }
+        Column {
+            Text("Kolom2-Komponen1")
+            Text("Kolom2-Komponen2")
+        }
+    }
+}
+
+
 
