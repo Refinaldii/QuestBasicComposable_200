@@ -80,3 +80,4 @@ fun TataletakBoxColumnRow(modifier: Modifier = Modifier) {
         }
     }
 }
+
