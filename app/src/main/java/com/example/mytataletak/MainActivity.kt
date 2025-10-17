@@ -3,22 +3,22 @@ package com.example.mytataletak
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.example.mytataletak.ui.theme.MyTataLetakTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         setContent {
             MyTataLetakTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    // Panggil layout yang kamu buat
                     TataletakBoxColumnRow(
                         modifier = Modifier.padding(innerPadding)
                     )
@@ -32,7 +32,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun PreviewTataletakBoxColumnRow() {
     MyTataLetakTheme {
-        TataletakBoxColumnRow(modifier = Modifier.padding(16.dp))
+        TataletakBoxColumnRow()
     }
 }
-

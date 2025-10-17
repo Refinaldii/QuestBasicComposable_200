@@ -3,159 +3,96 @@ package com.example.mytataletak
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun TataletakColumn(modifier: Modifier) {
-    Column(modifier = modifier.padding(top = 20.dp, start = 20.dp, end = 20.dp)) {
-        Text(text = "Komponen1")
-        Text(text = "Komponen2")
-        Text(text = "Komponen3")
-        Text(text = "Komponen4")
-    }
-}
+fun TataletakBoxColumnRow(modifier: Modifier = Modifier) {
+    val gambar = painterResource(id = R.drawable.hengker) // pastikan ada di drawable
 
-@Composable
-fun TataletakRow(modifier: Modifier) {
-    Row(
-        modifier = modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.SpaceEvenly
-    ) {
-        Text(text = "Komponen1")
-        Text(text = "Komponen2")
-        Text(text = "Komponen3")
-        Text(text = "Komponen4")
-    }
-}
-
-@Composable
-fun TataletakBox(modifier: Modifier) {
-    Box(
+    Column(
         modifier = modifier
-            .fillMaxWidth()
-            .fillMaxHeight(),
-        contentAlignment = Alignment.Center
+            .fillMaxSize()
+            .background(Color(0xFFF5F5F5))
+            .padding(16.dp)
     ) {
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Text(text = "Box 1")
-            Text(text = "Column 1")
-            Text(text = "Row 1")
-            Text(text = "Row 2")
-        }
-    }
-}
-
-@Composable
-fun TataletakColumnRow(modifier: Modifier) {
-    Column {
-        // Baris 1
-        Row(
-            modifier = modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceEvenly
-        ) {
-            Text(text = "Komponen1Baris1")
-            Text(text = "Komponen2Baris1")
-            Text(text = "Komponen3Baris1")
-        }
-
-        // Baris 2
-        Row(
-            modifier = modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceEvenly
-        ) {
-            Text(text = "Komponen1Baris2")
-            Text(text = "Komponen2Baris2")
-            Text(text = "Komponen3Baris2")
-        }
-    }
-}
-
-@Composable
-fun TataletakRowColumn(modifier: Modifier) {
-    Row(
-        modifier = modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.SpaceEvenly
-    ) {
-        Column {
-            Text(text = "Komponen1Kolom1")
-            Text(text = "Komponen2Kolom1")
-            Text(text = "Komponen3Kolom1")
-        }
-        Column {
-            Text(text = "Komponen1Kolom2")
-            Text(text = "Komponen2Kolom2")
-            Text(text = "Komponen3Kolom2")
-        }
-    }
-}
-
-@Composable
-fun TataletakBoxColumnRow(modifier: Modifier) {
-    val gambar = painterResource(id = R.drawable.hengker) // Asumsi nama drawable
-
-    Column(modifier = modifier) {
-        // Box pertama (kuning)
+        // 🔶 Box atas (kuning)
         Box(
-            modifier = modifier
-                .height(110.dp)
+            modifier = Modifier
                 .fillMaxWidth()
-                .background(Color.Yellow),
+                .height(140.dp)
+                .background(Color(0xFFFFD54F), shape = RoundedCornerShape(16.dp))
+                .shadow(4.dp, shape = RoundedCornerShape(16.dp))
+                .padding(12.dp),
             contentAlignment = Alignment.Center
         ) {
-            Column {
-                // Row 1
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Text(
+                    text = "Tata Letak Box - Column - Row",
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = Color(0xFF3E2723)
+                )
+                Spacer(modifier = Modifier.height(8.dp))
                 Row(
-                    modifier = modifier.fillMaxWidth(),
+                    modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceEvenly
                 ) {
-                    Text(text = "Col1 Row1 Komponen1")
-                    Text(text = "Col1 Row1 Komponen2")
-                    Text(text = "Col1 Row1 Komponen3")
-                }
-                // Row 2
-                Row(
-                    modifier = modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceEvenly
-                ) {
-                    Text(text = "Col1 Row2 Komponen1")
-                    Text(text = "Col1 Row2 Komponen2")
-                    Text(text = "Col1 Row2 Komponen3")
+                    Text("Kucing ")
+                    Text("Mobil ")
+                    Text("Pesawat")
                 }
             }
         }
 
-        Spacer(modifier = Modifier.height(10.dp))
+        Spacer(modifier = Modifier.height(20.dp))
 
-        // Box kedua (cyan)
+        // 🔷 Box gambar
         Box(
-            modifier = modifier
-                .height(500.dp)
+            modifier = Modifier
                 .fillMaxWidth()
-                .background(Color.Cyan),
-            contentAlignment = Alignment.Center
+                .height(400.dp)
+                .background(Color(0xFF80DEEA), shape = RoundedCornerShape(16.dp))
+                .shadow(4.dp, shape = RoundedCornerShape(16.dp)),
         ) {
             Image(
                 painter = gambar,
                 contentDescription = null,
-                contentScale = ContentScale.Fit
-            )
-            Text(
-                text = "My Image",
-                fontSize = 50.sp,
-                color = Color.Red,
-                fontWeight = FontWeight.Bold,
-                fontFamily = FontFamily.Cursive
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(400.dp)
+                    .clip(RoundedCornerShape(16.dp)),
+                contentScale = ContentScale.Crop
             )
         }
+
+        // Spacer fleksibel untuk dorong teks ke bawah layar
+        Spacer(modifier = Modifier.weight(1f))
+
+        // 🔹 Teks “My Image” di bawah layar
+        Text(
+            text = "My Image",
+            fontSize = 36.sp,
+            fontWeight = FontWeight.Bold,
+            fontFamily = FontFamily.Cursive,
+            color = Color.Red,
+            textAlign = TextAlign.Center,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 16.dp)
+        )
     }
 }
