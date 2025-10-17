@@ -16,6 +16,8 @@ import com.example.mytataletak.ui.theme.MyTataLetakTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setcontent {}
+
     }
 }
 
